@@ -5,24 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Display</title>
     <style>
-        /* Basic styling */
+        /* General page styling */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
+            padding-top: 80px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        h1 {
-            text-align: center;
-            color: #333;
-            font-size: 2.5rem;
+        /* Fixed header styling */
+        .header-table {
+            width: 100%;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
         }
 
-        /* Grid container styling */
+        .header-table td {
+            padding: 10px;
+        }
+
+        /* Navigation bar styling */
+        .nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: blueviolet;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 140px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: yellow;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Responsive grid styling for products */
         .product-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -68,9 +131,45 @@
             color: #666;
             padding: 0 15px 20px;
         }
+
+        /* Back home link styling */
+        .back-home {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            background-color: #333;
+            color: chocolate;
+            border-radius: 5px;
+            margin: 20px auto;
+            width: 150px;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Fixed Header Table -->
+    <table class="header-table">
+        <tr>
+            <td><a href="index.html"><img src="phot.jpeg" width="200px" height="100px" alt="Logo"></a></td>
+            <td>
+                <ul class="nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="LOGG.html">Log In</a></li>
+                    <li class="dropdown">
+                        <a class="dropbtn" href="#">About Us</a>
+                        <div class="dropdown-content">
+                            <a href="branchs.html">Our Branches</a>
+                            <a href="email.html">E-mail</a>
+                            <a href="nwes.html">Products</a>
+                        </div>
+                    </li>
+                    <li><a href="shopping.html">Shopping</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 
     <h1>Our Products</h1>
 
@@ -82,7 +181,7 @@
             <h2 class="product-name">Leafy Greens</h2>
             <p class="product-description">Spinach, kale, and arugula are packed with vitamins, minerals, and antioxidants.</p>
         </div>
-        
+
         <!-- Product 2 -->
         <div class="product-card">
             <img src="Berries.jpg" alt="Berries" class="product-image">
@@ -104,44 +203,26 @@
             <p class="product-description">Avocado is known for its healthy fats and fiber, making it a popular choice.</p>
         </div>
 
-        <!-- Product 5 -->
+        <!-- Additional Products (example) -->
         <div class="product-card">
             <img src="bell.jpeg" alt="Bell Peppers" class="product-image">
             <h2 class="product-name">Bell Peppers</h2>
             <p class="product-description">Loaded with vitamin C and A, especially red, yellow, and orange varieties.</p>
         </div>
 
-        <!-- Product 6 -->
         <div class="product-card">
             <img src="ora.html" alt="Oranges" class="product-image">
             <h2 class="product-name">Oranges</h2>
             <p class="product-description">Rich in vitamin C, oranges support immune health and skin health.</p>
         </div>
-
-        <!-- Product 7 -->
-        <div class="product-card">
-            <img src="zunchi.jpeg" alt="Zucchini" class="product-image">
-            <h2 class="product-name">Zucchini</h2>
-            <p class="product-description">A low-calorie vegetable high in vitamins and antioxidants.</p>
-        </div>
-
-        <!-- Product 8 -->
-        <div class="product-card">
-            <img src="pineaple.jpeg" alt="Pineapple" class="product-image">
-            <h2 class="product-name">Pineapple</h2>
-            <p class="product-description">A tropical fruit rich in vitamin C and manganese.</p>
-        </div>
-
-        <!-- Product 9 -->
-        <div class="product-card">
-            <img src="banana.jpeg" alt="Banana" class="product-image">
-            <h2 class="product-name">Banana</h2>
-            <p class="product-description">High in potassium, bananas support heart health and blood pressure regulation.</p>
-        </div>
     </div>
+
+    <!-- Back Home Link -->
+    <a href="index.html" class="back-home">Back Home</a>
 
 </body>
 </html>
+
 
 
 
