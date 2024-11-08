@@ -3,277 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Room Gallery</title>
     <style>
-        /* Navigation bar styling */
-        .nav {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: blueviolet;
-        }
-        li {
-            float: left;
-        }
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        li a:hover, .dropdown:hover .dropbtn {
-            background-color: red;
-        }
-        li.dropdown {
-            display: inline-block;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color:#f1f1f1;
-            min-width: 140px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align:left;
-        }
-        .dropdown-content a:hover {
-            background-color: yellow;
-        }
-        .dropdown:hover .dropdown-content{
-            display: block;
-        }
-        .active {
-            border-radius:50%;
-        }
-
-        /* General page styling */
+        /* General styles for the page */
         body {
+            background-color: pink;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding-top: 80px;
+            padding: 20px;
+            color: #333;
         }
 
-        .header-table {
+        /* Styling the table to arrange images neatly */
+        table {
             width: 100%;
-            background-color: #333;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            padding: 10px 0;
+            border-collapse: collapse;
+            margin: auto;
         }
 
-        .header-table td {
+        td {
+            width: 33.33%;
             padding: 10px;
-        }
-
-        /* Section title styling */
-        .section-title {
+            vertical-align: top;
             text-align: center;
-            text-transform: uppercase;
-            font-size: 2rem;
         }
 
-        .section-title::after {
-            content: "";
-            width: 120px;
-            height: 5px;
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 8px;
-            background-color: #f3961c;
-        }
-
-        /* Menu Section Styling */
-        .menu-section {
-            color: #fff;
-            background: #252525;
-            padding: 50px 20px 100px;
-        }
-
-        .menu-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 30px;
-        }
-
-        .menu-item {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            flex-direction: column;
-            justify-content: space-between;
+        img {
             width: 100%;
-            max-width: 250px;
-            margin: 10px;
+            border-radius: 8px;
         }
 
-        .menu-image {
-            max-width: 100%;
-            height: 150px;
-            object-fit: contain;
-            margin-bottom: 15px;
-            cursor: zoom-in;
-            transition: 0.3s ease;
-        }
-
-        .menu-item:hover .menu-image {
-            transform: scale(1.1);
-        }
-
-        .name {
-            margin: 12px 0;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .text {
-            font-size: 1.12rem;
+        /* Styling for room description */
+        .room-info {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #444;
         }
 
         /* Back home link styling */
         a {
-            display: flex;
-            justify-content: center;
-            text-decoration: none;
-            padding: 25px;
-            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
             background-color: #333;
             color: white;
-            border-radius: 5px;
-            margin-top: 50px;
+            text-decoration: none;
+            border-radius: 4px;
         }
 
-        /* Media Queries for responsiveness */
+        a:hover {
+            background-color: #555;
+        }
+
+        /* Form styling */
+        form {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input[type="number"], select {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Styling for the message display */
+        #message {
+            margin-top: 20px;
+            font-size: 16px;
+            color: green;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
-            .nav {
-                text-align: center;
-                padding-top: 20px;
-            }
-            .nav li {
-                float: none;
-                display: inline-block;
+            /* Stack the rooms vertically on smaller screens */
+            td {
                 width: 100%;
+                display: block;
+                margin-bottom: 20px;
             }
-            .nav li a {
-                font-size: 18px;
-                padding: 12px;
+
+            /* Adjust form and button styling for smaller screens */
+            form {
+                padding: 15px;
             }
-            .menu-item {
+
+            input[type="number"], select, button {
                 width: 100%;
-                max-width: 100%;
             }
         }
 
         @media (max-width: 480px) {
-            .menu-item {
+            /* Make text and images a little smaller for mobile screens */
+            .room-info {
+                font-size: 14px;
+            }
+
+            button {
+                padding: 8px 15px;
+            }
+
+            /* Ensure links are full-width on mobile */
+            a {
                 width: 100%;
-                max-width: 100%;
-            }
-
-            .name {
-                font-size: 1.2rem;
-            }
-
-            .text {
-                font-size: 1rem;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Fixed Header Table -->
-    <table class="header-table">
+    <h1>Room Gallery</h1>
+
+    <!-- Filter form -->
+    <form id="filter-form">
+        <label for="max-price">Max Price ($):</label>
+        <input type="number" id="max-price" placeholder="Enter max price" required>
+
+        <label for="room-feature">Select Room Feature:</label>
+        <select id="room-feature">
+            <option value="">Any</option>
+            <option value="king">King Bed</option>
+            <option value="queen">Queen Bed</option>
+            <option value="balcony">Private Balcony</option>
+            <option value="view">Lake View</option>
+            <option value="jacuzzi">Jacuzzi</option>
+        </select>
+
+        <button type="submit">Apply Filters</button>
+    </form>
+
+    <!-- Room table -->
+    <table id="room-table">
         <tr>
-            <td><a href="index.html"><img src="phot.jpeg" width="200px" height="100px" alt="vegetables&fruits"></a></td>
             <td>
-                <ul class="nav">
-                    <li><a class="active" href="index.html">Home</a></li>
-                    <li><a class="active" href="LOGG.html">Log In</a></li>
-                    <li class="dropdown">
-                        <a class="dropbtn" href="#about us">About Us</a>
-                        <div class="dropdown-content">
-                            <a href="branchs.html">Our branches</a>
-                            <a href="email.html">E-mail</a>
-                            <a href="nwes.html">product</a>
-                        </div>
-                    </li>
-                    <li><a class="active" href="shopping.html">shopping</a></li>
-                </ul>
+                <img src="image/1.avif" alt="Room 1">
+                <div class="room-info" data-price="150" data-features="queen, balcony, view, wifi, minibar">
+                    <p>Room 1</p>
+                    <p>Price: $150/night</p>
+                    <p>Queen bed, private balcony, mountain view, Wi-Fi, mini-bar</p>
+                </div>
+            </td>
+            <td>
+                <img src="image/2.avif" alt="Room 2">
+                <div class="room-info" data-price="200" data-features="king, view, breakfast, wifi, ac">
+                    <p>Room 2</p>
+                    <p>Price: $200/night</p>
+                    <p>King bed, lake view, free breakfast, Wi-Fi, air-conditioning</p>
+                </div>
+            </td>
+            <td>
+                <img src="image/3.avif" alt="Room 3">
+                <div class="room-info" data-price="180" data-features="double, garden, wifi, minibar, desk">
+                    <p>Room 3</p>
+                    <p>Price: $180/night</p>
+                    <p>Two double beds, garden view, Wi-Fi, mini-bar, desk</p>
+                </div>
             </td>
         </tr>
+        <!-- Additional rows and rooms can be added here as needed -->
     </table>
 
-    <!-- Product Description Section -->
-    <section class="menu-section">
-        <h2 class="section-title">PRODUCT'S DISCRIPTION</h2>
-        <div class="section-content">
-            <ul class="menu-list">
-                <li class="menu-item">
-                    <img src="lfgr.html" alt="Leef" class="menu-image">
-                    <h3 class="name">Leafy Greens</h3>
-                    <p class="text">Spinach, kale, and arugula are packed with vitamins, minerals, and antioxidants.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="Berries.jpg" alt="Berries" class="menu-image">
-                    <h3 class="name">Berries</h3>
-                    <p class="text">Blueberries, strawberries, and raspberries are rich in antioxidants, especially vitamin C and fiber.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="cruciferous.WEBP" alt="Cruciferous Vegetables" class="menu-image">
-                    <h3 class="name">Cruciferous Vegetables</h3>
-                    <p class="text">Broccoli, cauliflower, and Brussels sprouts are high in fiber, vitamins.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="avocado.WEBP" alt="Avocado" class="menu-image">
-                    <h3 class="name">Avocado</h3>
-                    <p class="text">Avocado is a trending fruit in the health and wellness sector, known for its healthy fats and fiber.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="bell.jpeg" alt="Bell Peppers" class="menu-image">
-                    <h3 class="name">Bell Peppers</h3>
-                    <p class="text">Bell peppers (especially red, yellow, and orange varieties) are loaded with vitamin C, vitamin A.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="ora.html" alt="Oranges" class="menu-image">
-                    <h3 class="name">Oranges</h3>
-                    <p class="text">Oranges are rich in vitamin C, which supports immune health and skin health.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="zunchi.jpeg" alt="Zucchini" class="menu-image">
-                    <h3 class="name">Zucchini</h3>
-                    <p class="text">Zucchini is a low-calorie vegetable high in vitamins and antioxidants.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="pineaple.jpeg" alt="Pineapple" class="menu-image">
-                    <h3 class="name">Pineapple</h3>
-                    <p class="text">If you prefer fruits, pineapple offers a tropical option that is high in vitamin C and manganese.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="banana.jpeg" alt="Banana" class="menu-image">
-                    <h3 class="name">Banana</h3>
-                    <p class="text">Bananas are rich in potassium, which supports heart health and helps maintain normal blood pressure.</p>
-                </li>
-            </ul>
-        </div>
-    </section>
+    <!-- Display area for selected room message -->
+    <div id="message"></div>
 
-    <!-- Back Home Link -->
-    <a href="index.html">Back Home</a>
+    <a href="index.html">Back home</a>
 
+    <script>
+        document.getElementById('filter-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const maxPrice = parseFloat(document.getElementById('max-price').value);
+            const selectedFeature = document.getElementById('room-feature').value;
+            const rooms = document.querySelectorAll('.room-info');
+            let message = '';
+
+            rooms.forEach(room => {
+                const roomPrice = parseFloat(room.getAttribute('data-price'));
+                const roomFeatures = room.getAttribute('data-features');
+
+                // Check if the room meets the filter criteria
+                if (roomPrice <= maxPrice && (selectedFeature === "" || roomFeatures.includes(selectedFeature))) {
+                    const roomName = room.querySelector('p').innerText;
+                    message = `Thank you for booking the ${roomName} for $${roomPrice}/night! We appreciate your choice.`;
+                    return; // Exit loop after finding the first matching room
+                }
+            });
+
+            // Display the appreciation message
+            const messageElement = document.getElementById('message');
+            messageElement.innerHTML = message || 'No rooms available with the selected criteria.';
+        });
+    </script>
 </body>
 </html>
+
 
 
 
