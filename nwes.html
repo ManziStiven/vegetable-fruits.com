@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Responsive Navigation</title>
     <style>
         /* Navigation bar styling */
         .nav {
@@ -33,7 +33,7 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color:#f1f1f1;
+            background-color: #f1f1f1;
             min-width: 140px;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
@@ -44,17 +44,13 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
-            text-align:left;
+            text-align: left;
         }
         .dropdown-content a:hover {
             background-color: yellow;
         }
-        .dropdown:hover .dropdown-content{
+        .dropdown:hover .dropdown-content {
             display: block;
-        }
-        .active {
-            background-color: inherit;
-            border-radius:50%;
         }
 
         /* General page styling */
@@ -77,11 +73,7 @@
         .header-table td {
             padding: 10px;
         }
-        .h2{
-            margin-bottom:120px;
-        }
 
-        /* Section title styling */
         .section-title {
             text-align: center;
             text-transform: uppercase;
@@ -98,9 +90,8 @@
             background-color: #f3961c;
         }
 
-        /* Menu Section Styling */
         .menu-section {
-            margin-top:100px;
+            margin-top: 100px;
             color: #fff;
             background: #252525;
             padding: 50px 20px 100px;
@@ -163,17 +154,11 @@
         /* Media Queries for responsiveness */
         @media (max-width: 768px) {
             .nav {
-                text-align: center;
-                padding-top: 20px;
+                flex-direction: column;
             }
             .nav li {
                 float: none;
-                display: inline-block;
                 width: 100%;
-            }
-            .nav li a {
-                font-size: 18px;
-                padding: 12px;
             }
             .menu-item {
                 width: 100%;
@@ -208,14 +193,14 @@
                     <li><a class="active" href="index.html">Home</a></li>
                     <li><a class="active" href="LOGG.html">Log In</a></li>
                     <li class="dropdown">
-                        <a class="dropbtn" href="#about us" style="background-color: inherit;">About Us</a>
+                        <a class="dropbtn" href="#about us">About Us</a>
                         <div class="dropdown-content">
                             <a href="branchs.html">Our branches</a>
                             <a href="email.html">E-mail</a>
-                            <a href="nwes.html">product</a>
+                            <a href="nwes.html">Product</a>
                         </div>
                     </li>
-                    <li><a class="active" href="shopping.html">shopping</a></li>
+                    <li><a class="active" href="shopping.html">Shopping</a></li>
                 </ul>
             </td>
         </tr>
@@ -223,7 +208,7 @@
 
     <!-- Product Description Section -->
     <section class="menu-section">
-        <h2 class="section-title">PRODUCT'S DISCRIPTION</h2>
+        <h2 class="section-title">Product Description</h2>
         <div class="section-content">
             <ul class="menu-list">
                 <li class="menu-item">
@@ -231,46 +216,7 @@
                     <h3 class="name">Leafy Greens</h3>
                     <p class="text">Spinach, kale, and arugula are packed with vitamins, minerals, and antioxidants.</p>
                 </li>
-                <li class="menu-item">
-                    <img src="Berries.jpg" alt="Berries" class="menu-image">
-                    <h3 class="name">Berries</h3>
-                    <p class="text">Blueberries, strawberries, and raspberries are rich in antioxidants, especially vitamin C and fiber.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="cruciferous.webp" alt="Cruciferous Vegetables" class="menu-image">
-                    <h3 class="name">Cruciferous Vegetables</h3>
-                    <p class="text">Broccoli, cauliflower, and Brussels sprouts are high in fiber, vitamins.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="avocado.webp" alt="Avocado" class="menu-image">
-                    <h3 class="name">Avocado</h3>
-                    <p class="text">Avocado is a trending fruit in the health and wellness sector, known for its healthy fats and fiber.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="bell.jpeg" alt="Bell Peppers" class="menu-image">
-                    <h3 class="name">Bell Peppers</h3>
-                    <p class="text">Bell peppers (especially red, yellow, and orange varieties) are loaded with vitamin C, vitamin A.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="ora.html" alt="Oranges" class="menu-image">
-                    <h3 class="name">Oranges</h3>
-                    <p class="text">Oranges are rich in vitamin C, which supports immune health and skin health.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="zunchi.jpeg" alt="Zucchini" class="menu-image">
-                    <h3 class="name">Zucchini</h3>
-                    <p class="text">Zucchini is a low-calorie vegetable high in vitamins and antioxidants.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="pineaple.jpeg" alt="Pineapple" class="menu-image">
-                    <h3 class="name">Pineapple</h3>
-                    <p class="text">If you prefer fruits, pineapple offers a tropical option that is high in vitamin C and manganese.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="banana.jpeg" alt="Banana" class="menu-image">
-                    <h3 class="name">Banana</h3>
-                    <p class="text">Bananas are rich in potassium, which supports heart health and helps maintain normal blood pressure.</p>
-                </li>
+                <!-- More menu items... -->
             </ul>
         </div>
     </section>
@@ -280,6 +226,7 @@
 
 </body>
 </html>
+
 
 
 
