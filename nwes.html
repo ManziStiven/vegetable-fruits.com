@@ -3,274 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Document</title>
+    <title>Product Display</title>
     <style>
-        /* Navigation bar styling */
-        .nav {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: blueviolet;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .nav li {
-            display: inline-block;
-            width: auto;
-        }
-        .nav li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        .nav li a:hover, .dropdown:hover .dropbtn {
-            background-color: red;
-        }
-        .dropdown {
-            position: relative;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 140px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown-content a {
-            background-color: inherit;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        .dropdown-content a:hover {
-            background-color: yellow;
-        }
-
-        /* General page styling */
+        /* Basic styling */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             margin: 0;
-            padding-top: 80px;
-        }
-
-        .header-table {
-            width: 100%;
-            background-color: #333;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            padding: 10px 0;
+            padding: 20px;
             display: flex;
-            justify-content: center;
-        }
-
-        .header-table td {
-            padding: 10px;
-            text-align: center;
-        }
-
-        /* Section title styling */
-        .section-title {
-            text-align: center;
-            text-transform: uppercase;
-            font-size: 2rem;
-        }
-
-        .section-title::after {
-            content: "";
-            width: 120px;
-            height: 5px;
-            display: block;
-            margin: 10px auto;
-            border-radius: 8px;
-            background-color: #f3961c;
-        }
-
-        /* Menu Section Styling */
-        .menu-section {
-            margin-top: 100px;
-            color: #fff;
-            background: #252525;
-            padding: 50px 20px;
-        }
-
-        .menu-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 30px;
-        }
-
-        .menu-item {
-            display: flex;
-            align-items: center;
-            text-align: center;
             flex-direction: column;
-            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5rem;
+        }
+
+        /* Grid container styling */
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             width: 100%;
-            max-width: 250px;
-        }
-
-        .menu-image {
-            max-width: 100%;
-            height: 150px;
-            object-fit: contain;
-            margin-bottom: 15px;
-            cursor: zoom-in;
-            transition: 0.3s ease;
-        }
-
-        .menu-item:hover .menu-image {
-            transform: scale(1.1);
-        }
-
-        .name {
-            margin: 12px 0;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .text {
-            font-size: 1.12rem;
-        }
-
-        /* Back home link styling */
-        .back-home {
-            display: flex;
-            justify-content: center;
-            text-decoration: none;
-            padding: 25px;
-            font-size: 1.1rem;
-            background-color: #333;
-            color: chocolate;
-            border-radius: 5px;
+            max-width: 1200px;
             margin: 20px auto;
-            max-width: 200px;
         }
 
-        /* Media Queries for responsiveness */
-        @media (max-width: 768px) {
-            .nav li {
-                width: auto;
-            }
-            .nav li a {
-                font-size: 18px;
-                padding: 12px;
-            }
-            .menu-list {
-                flex-direction: column;
-                align-items: center;
-            }
+        /* Product card styling */
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+            text-align: center;
         }
 
-        @media (max-width: 480px) {
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .menu-image {
-                height: 120px;
-            }
-            .name {
-                font-size: 1.2rem;
-            }
-            .text {
-                font-size: 1rem;
-            }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Product image */
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Product name */
+        .product-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        /* Product description */
+        .product-description {
+            font-size: 1rem;
+            color: #666;
+            padding: 0 15px 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Fixed Header Table -->
-    <table class="header-table">
-        <tr>
-            <td><a href="index.html"><img src="phot.jpeg" width="200px" height="100px" alt="vegetables&fruits"></a></td>
-            <td>
-                <ul class="nav">
-                    <li><a class="active" href="index.html">Home</a></li>
-                    <li><a href="LOGG.html">Log In</a></li>
-                    <li class="dropdown">
-                        <a class="dropbtn" href="#about us">About Us</a>
-                        <div class="dropdown-content">
-                            <a href="branchs.html">Our branches</a>
-                            <a href="email.html">E-mail</a>
-                            <a href="nwes.html">Product</a>
-                        </div>
-                    </li>
-                    <li><a href="shopping.html">Shopping</a></li>
-                </ul>
-            </td>
-        </tr>
-    </table>
+    <h1>Our Products</h1>
 
-    <!-- Product Description Section -->
-    <section class="menu-section">
-        <h2 class="section-title">PRODUCT'S DESCRIPTION</h2>
-        <div class="section-content">
-            <ul class="menu-list">
-                <li class="menu-item">
-                    <img src="leefs.jpeg" alt="Leaf" class="menu-image">
-                    <h3 class="name">Leafy Greens</h3>
-                    <p class="text">Spinach, kale, and arugula are packed with vitamins, minerals, and antioxidants.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="Berries.jpg" alt="Berries" class="menu-image">
-                    <h3 class="name">Berries</h3>
-                    <p class="text">Blueberries, strawberries, and raspberries are rich in antioxidants, especially vitamin C and fiber.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="cruciferous.webp" alt="Cruciferous Vegetables" class="menu-image">
-                    <h3 class="name">Cruciferous Vegetables</h3>
-                    <p class="text">Broccoli, cauliflower, and Brussels sprouts are high in fiber, vitamins.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="avocado.webp" alt="Avocado" class="menu-image">
-                    <h3 class="name">Avocado</h3>
-                    <p class="text">Avocado is a trending fruit in the health and wellness sector, known for its healthy fats and fiber.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="bell.jpeg" alt="Bell Peppers" class="menu-image">
-                    <h3 class="name">Bell Peppers</h3>
-                    <p class="text">Bell peppers (especially red, yellow, and orange varieties) are loaded with vitamin C, vitamin A.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="ora.html" alt="Oranges" class="menu-image">
-                    <h3 class="name">Oranges</h3>
-                    <p class="text">Oranges are rich in vitamin C, which supports immune health and skin health.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="zunchi.jpeg" alt="Zucchini" class="menu-image">
-                    <h3 class="name">Zucchini</h3>
-                    <p class="text">Zucchini is a low-calorie vegetable high in vitamins and antioxidants.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="pineaple.jpeg" alt="Pineapple" class="menu-image">
-                    <h3 class="name">Pineapple</h3>
-                    <p class="text">If you prefer fruits, pineapple offers a tropical option that is high in vitamin C and manganese.</p>
-                </li>
-                <li class="menu-item">
-                    <img src="banana.jpeg" alt="Banana" class="menu-image">
-                    <h3 class="name">Banana</h3>
-                    <p class="text">Bananas are rich in potassium, which supports heart health and helps maintain normal blood pressure.</p>
-                </li>
-            </ul>
+    <!-- Product Container -->
+    <div class="product-container">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="leefs.jpeg" alt="Leafy Greens" class="product-image">
+            <h2 class="product-name">Leafy Greens</h2>
+            <p class="product-description">Spinach, kale, and arugula are packed with vitamins, minerals, and antioxidants.</p>
         </div>
-    </section>
+        
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="Berries.jpg" alt="Berries" class="product-image">
+            <h2 class="product-name">Berries</h2>
+            <p class="product-description">Blueberries, strawberries, and raspberries are rich in antioxidants, especially vitamin C and fiber.</p>
+        </div>
 
-    <!-- Back Home Link -->
-    <a href="index.html" class="back-home">Back Home</a>
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="cruciferous.webp" alt="Cruciferous Vegetables" class="product-image">
+            <h2 class="product-name">Cruciferous Vegetables</h2>
+            <p class="product-description">Broccoli, cauliflower, and Brussels sprouts are high in fiber and vitamins.</p>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="avocado.webp" alt="Avocado" class="product-image">
+            <h2 class="product-name">Avocado</h2>
+            <p class="product-description">Avocado is known for its healthy fats and fiber, making it a popular choice.</p>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+            <img src="bell.jpeg" alt="Bell Peppers" class="product-image">
+            <h2 class="product-name">Bell Peppers</h2>
+            <p class="product-description">Loaded with vitamin C and A, especially red, yellow, and orange varieties.</p>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+            <img src="ora.html" alt="Oranges" class="product-image">
+            <h2 class="product-name">Oranges</h2>
+            <p class="product-description">Rich in vitamin C, oranges support immune health and skin health.</p>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card">
+            <img src="zunchi.jpeg" alt="Zucchini" class="product-image">
+            <h2 class="product-name">Zucchini</h2>
+            <p class="product-description">A low-calorie vegetable high in vitamins and antioxidants.</p>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card">
+            <img src="pineaple.jpeg" alt="Pineapple" class="product-image">
+            <h2 class="product-name">Pineapple</h2>
+            <p class="product-description">A tropical fruit rich in vitamin C and manganese.</p>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="product-card">
+            <img src="banana.jpeg" alt="Banana" class="product-image">
+            <h2 class="product-name">Banana</h2>
+            <p class="product-description">High in potassium, bananas support heart health and blood pressure regulation.</p>
+        </div>
+    </div>
 
 </body>
 </html>
+
 
