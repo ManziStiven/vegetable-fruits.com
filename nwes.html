@@ -12,7 +12,6 @@
             padding: 0;
             overflow: hidden;
             background-color: blueviolet;
-            heigt:20px;
         }
         li {
             float: left;
@@ -183,9 +182,17 @@
         }
 
         @media (max-width: 480px) {
+            .header-table td a img {
+                width: 150px;
+                height: 75px;
+            }
             .menu-item {
                 width: 100%;
                 max-width: 100%;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
             }
 
             .name {
@@ -194,6 +201,11 @@
 
             .text {
                 font-size: 1rem;
+            }
+
+            a {
+                font-size: 1rem;
+                padding: 15px;
             }
         }
     </style>
@@ -281,6 +293,7 @@
 
 </body>
 </html>
+
 
 
 
