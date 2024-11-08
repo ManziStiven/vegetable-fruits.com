@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+        
+        </title>
+        <style>
+            
+       
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color:blueviolet;
+
+            }
+            li {
+                float: left;
+            }
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 24pt;
+            }
+            li a:hover, .dropdown:hover .dropbtn {
+                background-color: red;
+            }
+            li.dropdown {
+                display: inline-block;
+            }
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color:#f1f1f1;
+                min-width: 140px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+            .dropdown-content a {
+            
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align:left;
+            }
+            .dropdown-content a:hover {
+                background-color: yellow;
+            }
+            .dropdown:hover .dropdown-content{
+                display: block;
+                
+            }
+            .active{border-radius:50%;}
+            .hidden{
+             display: none;
+            }
+            
+            body{
+              background-color:gray;
+                width: 100%;
+                height: 100%;}
+
+
+
+                .container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+  }
+  
+  .container h2 {
+	margin-top: 120px;
+	font-size: 2rem;
+	color: #333;
+	margin-bottom: 2rem;
+    color:black;
+  }
+  
+  .item-cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	justify-content: center;
+  }
+  
+  .item-card {
+	background-color: #f8f8f8;
+	border-radius: 8px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	width: 250px;
+	text-align: left;
+	transition: transform 0.3s ease;
+  }
+  
+  .item-card:hover {
+	transform: translateY(-5px);
+  }
+  
+  .item-card img {
+	width: 100%;
+	height: auto;
+  }
+  
+  .item-card h3 {
+	font-size: 1.5rem;
+	color: #2c3e50;
+	margin: 1rem;
+  }
+  
+  .item-card p {
+	font-size: 1rem;
+	color: #555;
+	margin: 0 1rem 1.5rem 1rem;
+ }
+ table {
+        
+        width: 100%;
+        background-color: #333;
+        position: fixed; /* Fixes the table at the top */
+        top: 0;
+        z-index: 1000; /* Ensures it stays above other content */
+    }
+    footer{
+      color: #f1f1f1;
+      padding: 12px 14px;
+      background-color: black;
+      text-align: center;
+      background-size:cover;
+      left: 0px;
+      right: 0px;
+      bottom: 0px
+    }
+
+
+
+
+        </style>
+    </head>
+    <body bgcolor="green">
+        <table>
+            <tr><td><a href="#"><img src="phot.jpeg" width="300px" height="150px" alt="vegetables&fruits shop"></td></a>
+            <td><ul>
+                <li>
+                    <a class="active" href="#">Home</a>
+                </li>
+                <li>
+                    <a class="active" href="LOGG.html">Log In</a>
+                </li>
+    
+                <li class="dropdown" class="active"><a class="dropbtn" href="#nwes">About Us</a>
+                    <div class="dropdown-content">
+                        <a href="email.html">E-mail</a>
+                        <a href="nwes.html">Products</a>
+                        <a href="branchs.html">our branches</a>
+                    </div>
+                </li>
+              
+                  <li>
+                    <a class="active" href="shopping.html">shopping</a>
+                </li>
+                <li>
+                
+    
+            </ul></td>
+            </tr>
+        </table>
+
+        <div class="container">
+            <h2> vegetables&fruits shop</h2>
+            <div class="item-cards">
+
+              <div class="item-card">
+                <img src="cutting.jpeg" alt="cutting Board">
+                <h3>cutting Board</h3>
+                <p>A sturdy, non-slip surface for chopping fruits and vegetables.</p>
+              </div>
+          
+              <div class="item-card">
+                <img src="knife.jpeg" alt="Knife Set">
+                <h3>Knife Set</h3>
+                <p>Essential for slicing, dicing, and preparing various produce.</p>
+              </div>
+          
+              <div class="item-card">
+                <img src="container.jpeg" alt="Storage Containers">
+                <h3>Storage Containers</h3>
+                <p>Airtight containers to keep fruits and vegetables fresh longer.</p>
+              </div>
+          
+              <div class="item-card">
+                <img src="fruits.jpeg" alt="Fruit Basket">
+                <h3>Fruit Basket</h3>
+                <p>For storing fruits that need to be kept at room temperature.</p>
+              </div>
+          
+              <div class="item-card">
+                <img src="salad.jpeg" alt="Salad Spinner">
+                <h3>Salad Spinner</h3>
+                <p>For washing and drying leafy greens efficiently.</p>
+              </div>
+          
+              <div class="item-card">
+                <img src="peeler.jpeg" alt="Peeler">
+                <h3>Peeler</h3>
+                <p>A must-have tool for peeling skins off various fruits and vegetables.</p></p>
+              </div>
+            </div>
+        </div>
+        <footer>
+        <p>&copy; 2024 vegetables&fruits Info</p>
+        <details>
+            <summary>Contact Us</summary>
+            <p>Email: info@vegetables&fruits.com</p>
+            <p>Phone: +2507222222222</p>
+        </details>
+    </footer>
+        </body>
+</html>

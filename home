@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Essentials for Fruits & Vegetables</title>
+    <style>
+        /* Basic styling reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Main container styling */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* Item card styling */
+        .item-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .item-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .item-content {
+            padding: 15px;
+        }
+
+        .item-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .item-description {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <table class="header-table">
+        <tr><td><img src="phot.jpeg" width="200px" height="100px" alt="vegetable&fruit"></td>
+        <td><ul>
+            <li>
+                <a class="active" href="proje.html">Home</a>
+            </li>
+            <li>
+                <a class="active" href="LOGG.html">Log In</a>
+            </li>
+            
+
+            <li><a href="nwes.html" class="hidden">nwes</a></li>
+            <li class="dropdown" class="active"><a class="dropbtn" href="#about us">About Us</a>
+                <div class="dropdown-content">
+                    <a href="branchs.html">Our branches</a>
+                    <a href="email.html">E-mail</a>
+                    <a href="nwes.html">product</a>
+                </div>
+            </li>
+
+        </ul></td>
+        </tr>
+    </table>
+    <div class="container">
+        <!-- Item 1 -->
+        <div class="item-card">
+            <img src="cutting.jpeg" alt="Cutting Board" class="item-image">
+            <div class="item-content">
+                <p class="item-title">Cutting Board</p>
+                <p class="item-description">A sturdy, non-slip surface for chopping fruits and vegetables.</p>
+            </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="item-card">
+            <img src="knife.jpeg" alt="Knife Set" class="item-image">
+            <div class="item-content">
+                <p class="item-title">Knife Set</p>
+                <p class="item-description">Essential for slicing, dicing, and preparing various produce.</p>
+            </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="item-card">
+            <img src="container.jpeg" alt="Storage Containers" class="item-image">
+            <div class="item-content">
+                <p class="item-title">Storage Containers</p>
+                <p class="item-description">Airtight containers to keep fruits and vegetables fresh longer.</p>
+            </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="item-card">
+            <img src="fruits.jpeg" alt="Fruit Basket" class="item-image">
+            <div class="item-content">
+                <p class="item-title">Fruit Basket</p>
+                <p class="item-description">For storing fruits that need to be kept at room temperature.</p>
+            </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="item-card">
+            <img src="salad.jpeg" alt="Salad Spinner" class="item-image">
+            <div class="item-content">
+                <p class="item-title">Salad Spinner</p>
+                <p class="item-description">For washing and drying leafy greens efficiently.</p>
+            </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="item-card">
+            <img src="peeler.jpeg" alt="Peeler" class="item-image">
+            <div class="item-content">
+                <p class="item-title">Peeler</p>
+                <p class="item-description">A must-have tool for peeling skins off various fruits and vegetables.</p>
+            </div>
+        </div>
+    </div>
+    <a href="index.html"></a>
+</body>
+</html>
+
+

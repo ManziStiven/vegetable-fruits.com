@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Page</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color:palegreen;
+        }
+        h1{
+            margin-top: 150px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Allows wrapping every three items */
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: calc(33.333% - 20px); /* Makes each card take up 1/3 of the row minus the gap */
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .add-to-buy {
+            background-color:green;
+            color: pink;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Purchase form styling */
+        .purchase-form {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .thank-you {
+            display: none;
+            color:black;
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-weight: bold;
+            
+        }
+
+        .submit-button {
+            background-color:green;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        table {
+        
+        width: 100%;
+        background-color: #333;
+        position: fixed; /* Fixes the table at the top */
+        top: 0;
+        z-index: 1000; /* Ensures it stays above other content */
+    }
+    ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color:blueviolet;
+
+        }
+    li {
+        float: left;
+    }
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 24pt;
+    }
+    li a:hover, .dropdown:hover .dropbtn {
+        background-color: red;
+    }
+    li.dropdown {
+        display: inline-block;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color:#f1f1f1;
+        min-width: 140px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    .dropdown-content a {
+    
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align:left;
+    }
+    .dropdown-content a:hover {
+        background-color: yellow;
+    }
+    .dropdown:hover .dropdown-content{
+        display: block;
+        
+    }
+    .active{border-radius:50%;}
+    .hidden{
+        display: none;
+    }
+    </style>
+</head>
+<body> <table>
+    <tr><td><a href="index.html"><img src="phot.jpeg" width="300px" height="150px" alt="vegetables&fruits shop"></td></a>
+    <td><ul>
+        <li>
+            <a class="active" href="index.html">Home</a>
+        </li>
+        <li>
+            <a class="active" href="LOGG.html">Log In</a>
+        </li>
+
+        <li class="dropdown" class="active"><a class="dropbtn" href="#nwes">About Us</a>
+            <div class="dropdown-content">
+                <a href="email.html">E-mail</a>
+                <a href="nwes.html">Products</a>
+                <a href="branchs.html">our branchs</a>
+            </div>
+        </li>
+      
+          <li>
+            <a class="active" href="shopping.html">shopping</a>
+        </li>
+        <li>
+        
+
+    </ul></td>
+    </tr>
+</table>
+<h1>choose aproduct</h1>
+    <div class="container">
+        <div class="product-card">
+            <img src="cruciferous.webp" alt="Cruciferous" class="product-image">
+            <div class="product-title">Cruciferous</div>
+            <div class="product-price">$10.00</div>
+            <button class="add-to-buy" onclick="showPurchaseForm('Cruciferous', 10)">Add to Buy</button>
+        </div>
+
+        <div class="product-card">
+            <img src="Berries.jpg" alt="Berries" class="product-image">
+            <div class="product-title">Berries</div>
+            <div class="product-price">$15.00</div>
+            <button class="add-to-buy" onclick="showPurchaseForm('Berries', 15)">Add to Buy</button>
+        </div>
+
+        <div class="product-card">
+            <img src="pineaple.jpeg" alt="Pineapple" class="product-image">
+            <div class="product-title">Pineapple</div>
+            <div class="product-price">$20.00</div>
+            <button class="add-to-buy" onclick="showPurchaseForm('Pineapple', 20)">Add to Buy</button>
+        </div>
+
+        <div class="product-card">
+            <img src="banana.jpeg" alt="Banana" class="product-image">
+            <div class="product-title">Banana</div>
+            <div class="product-price">$25.00</div>
+            <button class="add-to-buy" onclick="showPurchaseForm('Banana', 25)">Add to Buy</button>
+        </div>
+
+        <div class="product-card">
+            <img src="bell.jpeg" alt="Bell" class="product-image">
+            <div class="product-title">Bell</div>
+            <div class="product-price">$30</div>
+            <button class="add-to-buy" onclick="showPurchaseForm('Bell', 30)">Add to Buy</button>
+        </div>
+
+        <div class="product-card">
+            <img src="avocado.webp" alt="Avocado" class="product-image">
+            <div class="product-title">Avocado</div>
+            <div class="product-price">$35.00</div>
+            <button class="add-to-buy" onclick="showPurchaseForm('Avocado', 35)">Add to Buy</button>
+        </div>
+
+        <div class="product-card">
+            <img src="pineaple.jpeg" alt="Pineapple" class="product-image">
+            <div class="product-title">Pineapple</div>
+            <div class="product-price">$22.00</div>
+            <button class="add-to-buy" onclick="showPurchaseForm('Pineapple', 22)">Add to Buy</button>
+        </div>
+
+        <div class="product-card">
+            <img src="zunchi.jpeg" alt="Zunchi" class="product-image">
+            <div class="product-title">Zunchi</div>
+            <div class="product-price">$27.00</div>
+            <button class="add-to-buy" onclick="showPurchaseForm('Zunchi', 27)">Add to Buy</button>
+        </div>
+
+        <div class="product-card">
+            <img src="orange.jpeg" alt="Orange" class="product-image">
+            <div class="product-title">Orange</div>
+            <div class="product-price">$40.00</div>
+            <button class="add-to-buy" onclick="showPurchaseForm('Orange', 40)">Add to Buy</button>
+        </div>
+    </div>
+
+    <!-- Purchase Form -->
+    <div class="purchase-form" id="purchaseForm">
+        <h2>Confirm Purchase</h2>
+        <div id="productName"></div>
+        <div id="productPrice"></div>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" min="1" value="1">
+        <button class="submit-button" onclick="completePurchase()">Submit</button>
+    </div>
+
+    <!-- Thank You Message -->
+    <div class="thank-you" id="thankYouMessage">
+        Thank you for purchasing! We appreciate your order.
+    </div>
+
+    <script>
+        let selectedProduct = {};
+
+        function showPurchaseForm(name, price) {
+            selectedProduct = { name, price };
+            document.getElementById('productName').innerText = `Product: ${name}`;
+            document.getElementById('productPrice').innerText = `Price per item: $${price.toFixed(2)}`;
+            document.getElementById('purchaseForm').style.display = 'block';
+            document.getElementById('thankYouMessage').style.display = 'none';
+        }
+
+        function completePurchase() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            document.getElementById('purchaseForm').style.display = 'none';
+            document.getElementById('thankYouMessage').innerText = `Thank you for purchasing ${quantity} ${selectedProduct.name}(s)! We appreciate your order.`;
+            document.getElementById('thankYouMessage').style.display = 'block';
+        }
+    </script>
+
+
+<a href="index.html"> Back home</a>
+
+</body>
+</html>
+
+
+
