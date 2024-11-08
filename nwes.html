@@ -3,23 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Document</title>
+    <title>Document</title>
     <style>
         /* Navigation bar styling */
         .nav {
             list-style-type: none;
             margin: 0;
             padding: 0;
+            overflow: hidden;
             background-color: blueviolet;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
         }
-        .nav li {
-            display: inline-block;
-            width: auto;
+        li {
+            float: left;
         }
-        .nav li a {
+        li a {
             display: block;
             color: white;
             text-align: center;
@@ -27,33 +24,35 @@
             text-decoration: none;
             font-size: 16px;
         }
-        .nav li a:hover, .dropdown:hover .dropbtn {
+        li a:hover, .dropdown:hover .dropbtn {
             background-color: red;
         }
-        .dropdown {
-            position: relative;
+        li.dropdown {
+            display: inline-block;
         }
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #f1f1f1;
+            background-color:#f1f1f1;
             min-width: 140px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
         .dropdown-content a {
-            background-color: inherit;
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
-            text-align: left;
+            text-align:left;
         }
         .dropdown-content a:hover {
             background-color: yellow;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        .active {
+            border-radius:50%;
         }
 
         /* General page styling */
@@ -71,13 +70,10 @@
             top: 0;
             z-index: 1000;
             padding: 10px 0;
-            display: flex;
-            justify-content: center;
         }
 
         .header-table td {
             padding: 10px;
-            text-align: center;
         }
 
         /* Section title styling */
@@ -92,17 +88,16 @@
             width: 120px;
             height: 5px;
             display: block;
-            margin: 10px auto;
+            margin: 10px auto 0;
             border-radius: 8px;
             background-color: #f3961c;
         }
 
         /* Menu Section Styling */
         .menu-section {
-            margin-top: 100px;
             color: #fff;
             background: #252525;
-            padding: 50px 20px;
+            padding: 50px 20px 100px;
         }
 
         .menu-list {
@@ -120,6 +115,7 @@
             justify-content: space-between;
             width: 100%;
             max-width: 250px;
+            margin: 10px;
         }
 
         .menu-image {
@@ -146,44 +142,49 @@
         }
 
         /* Back home link styling */
-        .back-home {
+        a {
             display: flex;
             justify-content: center;
             text-decoration: none;
             padding: 25px;
             font-size: 1.1rem;
             background-color: #333;
-            color: chocolate;
+            color: white;
             border-radius: 5px;
-            margin: 20px auto;
-            max-width: 200px;
+            margin-top: 50px;
         }
 
         /* Media Queries for responsiveness */
         @media (max-width: 768px) {
+            .nav {
+                text-align: center;
+                padding-top: 20px;
+            }
             .nav li {
-                width: auto;
+                float: none;
+                display: inline-block;
+                width: 100%;
             }
             .nav li a {
                 font-size: 18px;
                 padding: 12px;
             }
-            .menu-list {
-                flex-direction: column;
-                align-items: center;
+            .menu-item {
+                width: 100%;
+                max-width: 100%;
             }
         }
 
         @media (max-width: 480px) {
-            .section-title {
-                font-size: 1.8rem;
+            .menu-item {
+                width: 100%;
+                max-width: 100%;
             }
-            .menu-image {
-                height: 120px;
-            }
+
             .name {
                 font-size: 1.2rem;
             }
+
             .text {
                 font-size: 1rem;
             }
@@ -199,16 +200,16 @@
             <td>
                 <ul class="nav">
                     <li><a class="active" href="index.html">Home</a></li>
-                    <li><a href="LOGG.html">Log In</a></li>
+                    <li><a class="active" href="LOGG.html">Log In</a></li>
                     <li class="dropdown">
                         <a class="dropbtn" href="#about us">About Us</a>
                         <div class="dropdown-content">
                             <a href="branchs.html">Our branches</a>
                             <a href="email.html">E-mail</a>
-                            <a href="nwes.html">Product</a>
+                            <a href="nwes.html">product</a>
                         </div>
                     </li>
-                    <li><a href="shopping.html">Shopping</a></li>
+                    <li><a class="active" href="shopping.html">shopping</a></li>
                 </ul>
             </td>
         </tr>
@@ -216,11 +217,11 @@
 
     <!-- Product Description Section -->
     <section class="menu-section">
-        <h2 class="section-title">PRODUCT'S DESCRIPTION</h2>
+        <h2 class="section-title">PRODUCT'S DISCRIPTION</h2>
         <div class="section-content">
             <ul class="menu-list">
                 <li class="menu-item">
-                    <img src="leefs.jpeg" alt="Leaf" class="menu-image">
+                    <img src="lfgr.html" alt="Leef" class="menu-image">
                     <h3 class="name">Leafy Greens</h3>
                     <p class="text">Spinach, kale, and arugula are packed with vitamins, minerals, and antioxidants.</p>
                 </li>
@@ -230,12 +231,12 @@
                     <p class="text">Blueberries, strawberries, and raspberries are rich in antioxidants, especially vitamin C and fiber.</p>
                 </li>
                 <li class="menu-item">
-                    <img src="cruciferous.webp" alt="Cruciferous Vegetables" class="menu-image">
+                    <img src="cruciferous.WEBP" alt="Cruciferous Vegetables" class="menu-image">
                     <h3 class="name">Cruciferous Vegetables</h3>
                     <p class="text">Broccoli, cauliflower, and Brussels sprouts are high in fiber, vitamins.</p>
                 </li>
                 <li class="menu-item">
-                    <img src="avocado.webp" alt="Avocado" class="menu-image">
+                    <img src="avocado.WEBP" alt="Avocado" class="menu-image">
                     <h3 class="name">Avocado</h3>
                     <p class="text">Avocado is a trending fruit in the health and wellness sector, known for its healthy fats and fiber.</p>
                 </li>
@@ -269,10 +270,11 @@
     </section>
 
     <!-- Back Home Link -->
-    <a href="index.html" class="back-home">Back Home</a>
+    <a href="index.html">Back Home</a>
 
 </body>
 </html>
+
 
 
 
